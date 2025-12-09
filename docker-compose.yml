@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine            
+    container_name: redis_db
+    ports:
+      - "6379:6379"              
+    networks:
+      - app_network
+
+  
+  usermanager:
+    build: ./UserManagerMicroservice
+    container_name: usermanager
+    environment:
+      - DB_HOST=mysql-db
+      - FLASK_RUN_HOST=0.0.0.0
+      - TARGET_GRPC_HOST=datacollector:50052
+      - REDIS_HOST=redis
+    ports:
+      - "5000:5000"  
+      - "50051:50051" 
+    networks:
+      - app_network   
+      - existing_db_net 
+
+  datacollector:
+    build: ./DataCollectorMicroservice
+    container_name: datacollector
+    depends_on:
+      - usermanager
+    environment:
+      - DB_HOST=mysql-db
+      - FLASK_RUN_HOST=0.0.0.0
+      - TARGET_GRPC_HOST=usermanager:50051
+    ports:
+      - "5005:5005"
+      - "50052:50052"
+    networks:
+      - app_network
+      - existing_db_net
+
+networks:
+  app_network:
+    driver: bridge
+  
+
+  existing_db_net:
+    external: true
+    name: composedatabase_default

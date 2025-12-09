@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service UserService{
+  rpc checkUser(UserCheckMessage) returns (UserResponse);
+  rpc delete_interestes_by_email(SendEmailMessage) returns (UserResponse);
+}
+
+message SendEmailMessage{
+  string email = 1;
+}
+
+message UserCheckMessage{
+  string email = 1;
+  string token = 2;
+}
+
+
+message UserResponse {
+  int32 status = 1;
+  string message = 2;
+}

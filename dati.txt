@@ -1,0 +1,12 @@
+[FlightData(dict_values(['a0566a', 1763543411, 'LIRF', 1763543486, None, 'UAL971  ', 2294, 140, None, None, 19, 0])), 
+FlightData(dict_values(['4b17fe', 1763543242, 'LIRF', 1763543486, None, 'SWR5GT  ', 95, 201, None, None, 19, 0])),...……
+
+
+
+{ 'arrivalAirportCandidatesCount': 0, 'callsign': 'MNS523 ', 'departureAirportCandidatesCount': 19, 'estArrivalAirport': None, 'estArrivalAirportHorizDistance': None, 'estArrivalAirportVertDistance': None, 'estDepartureAirport': 'LIRF', 'estDepartureAirportHorizDistance': 443, 'estDepartureAirportVertDistance': 194, 'firstSeen': 1763546589, 'icao24': '4d2129', 'lastSeen': 1763546727}
+
+
+con __dict__
+
+
+{'icao24': '4d2129', 'firstSeen': 1763546589, 'estDepartureAirport': 'LIRF', 'lastSeen': 1763546727, 'estArrivalAirport': None, 'callsign': 'MNS523 ', 'estDepartureAirportHorizDistance': 443, 'estDepartureAirportVertDistance': 194, 'estArrivalAirportHorizDistance': None, 'estArrivalAirportVertDistance': None, 'departureAirportCandidatesCount': 19, 'arrivalAirportCandidatesCount': 0}
